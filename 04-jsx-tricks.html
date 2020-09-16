@@ -9,14 +9,24 @@
         // const children = 'Hello World'
         // const className = 'container'
         // const element = <div className={className}>{children}</div>
-        const myChildren = 'Hello'
-        const worldChild = ' World'
-        const myClassName = 'container'
-        const element = (
-            <div className={myClassName}>
-                {myChildren}
-                {worldChild}
-            </div>)
+        //
+        // const myChildren = 'Hello'
+        // const worldChild = ' World'
+        //const myClassName = 'container'
+        //const element = (
+        //    <div className={myClassName}>
+        //        {myChildren}
+        //        {worldChild}
+        //        <div>
+        //            <span>Hello</span><strong> Fatih</strong>
+        //        </div>
+        //   </div>)
+        //PROPS
+        const children = 'Hello World'
+        const className = 'container'
+        const props = { children, className }
+        const element = <div id="app-root" {...props} className="not-container"></div>
+
         ReactDOM.render(element, rootElement)
 
 
