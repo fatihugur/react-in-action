@@ -4,14 +4,27 @@
     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
+
+        //2. last version -- => function --**
         const Message = props => <div className="message">{props.msg}</div>
         const element = (
             <div className="container">
-                {Message({ msg: 'Hello World' })}
-                {Message({ msg: 'Goodbye World' })}
+                <Message msg="Hello World" />
+                <Message msg="Goodbye World" />
             </div>
         )
 
+        //2.
+        // const Message = props => <div className="message">{props.msg}</div>
+        // const element = (
+        //    <div className="container">
+        //        {Message({ msg: 'Hello World' })}
+        //        {Message({ msg: 'Goodbye World' })}
+        //    </div>
+        // )
+        console.log(<div>Hello World</div>)
+        console.log(<Message>Hello World</Message>)
+        //1.
         //const element = (
         //   <div className="container">
         //        <div className="message">Hello World</div>
