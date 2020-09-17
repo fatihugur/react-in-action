@@ -5,15 +5,28 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
 
-        //const element = <div className="container">Hello World</div>
+        const element = (
+            //<React.Fragment>
+            //    <span>Hello</span> <span>World</span>
+            // </React.Fragment>
 
-        const helloElement = React.createElement('span', null, 'Hello')
-        const worldElement = React.createElement('span', null, ' World')
-        const element = React.createElement(
-            React.Fragment,
-            null,
-            helloElement,
-            worldElement)
+            //Wauw! <React.Fragment>...</React.Fragment> is equal <>...</>
+
+            <>
+                <span>Hello</span> <span>World</span>
+            </>
+
+        )
+
+        // <React.Fragment>...</React.Fragment> en <>...</> are equal this ->
+
+        //const helloElement = React.createElement('span', null, 'Hello')
+        //const worldElement = React.createElement('span', null, ' World')
+        // const element = React.createElement(
+        //    React.Fragment,
+        //    null,
+        //    helloElement,
+        //    worldElement)
 
         ReactDOM.render(element, document.getElementById('root'))
 
