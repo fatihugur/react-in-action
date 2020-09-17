@@ -6,31 +6,13 @@
     <script type="text/babel">
 
         const element = (
-            //<React.Fragment>
-            //    <span>Hello</span> <span>World</span>
-            // </React.Fragment>
+            <div className="container">
+                <div className="message">Hello World</div>
 
-            //Wauw! <React.Fragment>...</React.Fragment> is equal <>...</>
-
-            <>
-                <span>Hello</span> <span>World</span>
-            </>
-
+            </div>
         )
 
-        // <React.Fragment>...</React.Fragment> en <>...</> are equal this ->
-
-        //const helloElement = React.createElement('span', null, 'Hello')
-        //const worldElement = React.createElement('span', null, ' World')
-        // const element = React.createElement(
-        //    React.Fragment,
-        //    null,
-        //    helloElement,
-        //    worldElement)
-
         ReactDOM.render(element, document.getElementById('root'))
-
-
     </script>
 
 </body>
