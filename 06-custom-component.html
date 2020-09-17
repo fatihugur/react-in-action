@@ -5,14 +5,26 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
 
-        //2. last version -- => function --**
-        const Message = props => <div className="message">{props.msg}</div>
+        //4. version - props.children ->usage...
+        const Message = props => <div className="message">{props.children}</div>
         const element = (
             <div className="container">
-                <Message msg="Hello World" />
-                <Message msg="Goodbye World" />
+                <Message>
+                    Hello World
+                        <Message>Goodbye World</Message>
+                    <span>Hey there</span>
+                </Message>
             </div>
         )
+
+        //3. version -- => function --**
+        // const Message = props => <div className="message">{props.msg}</div>
+        // const element = (
+        //     <div className="container">
+        //         <Message msg="Hello World" />
+        //        <Message msg="Goodbye World" />
+        //    </div>
+        // )
 
         //2.
         // const Message = props => <div className="message">{props.msg}</div>
