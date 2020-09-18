@@ -5,12 +5,15 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
 
+        //The text "Hello World" has 11 characters
+        //The text "" has No characters
+
         function CharacterCount({ text }) {
             return (
                 <div>
-                    {`The text "${text}" has `}
+                    {`The text "${text}" has `}{''}
                     {text.length ? <strong>{text.length}</strong> : 'No'}
-                    {' characters'}
+                    {' charaters'}
                 </div>
             )
         }
@@ -22,6 +25,6 @@
             </>
         )
 
-        ReactDOM.render(element, rootElement)
+        ReactDOM.render(element, document.getElementById('root'))
     </script>
 </body>
