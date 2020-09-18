@@ -6,21 +6,11 @@
     <script type="text/babel">
 
         const rootElement = document.getElementById('root')
-        // const element = React.createElement('div', {
-        // children: 'Hello World! My name is Fatih...',
-        // children: ['Hello World', ', Goodbye World'],
-        // className: 'container',
-        // }) 
-        const element = <div className="container"> Hello World </div>
-        console.log(element)
+
+        const time = new Date().toLocaleTimeString()
+        const element = <div>{time}</div>
 
         ReactDOM.render(element, rootElement)
-       // const rootElement = document.getElementById('root')
-       // const element = document.createElement('div')
-       // element.textContent = "Hello World! My name is Fatih"
-       // element.className = "container"
-      // rootElement.appendChild(element)
-
     </script>
 
 </body>
