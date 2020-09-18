@@ -1,5 +1,20 @@
 <body>
     <div id="root"></div>
+    <style>
+        input {
+            background-color: #8b0000;
+            color: #ffffff;
+            width: auto;
+            border: solid 5px #ff0000;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            padding: 15px 5px;
+            text-align: center;
+        }
+    </style>
     <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
@@ -7,10 +22,19 @@
 
         const rootElement = document.getElementById('root')
 
-        const time = new Date().toLocaleTimeString()
-        const element = <div>{time}</div>
+        function tick() {
+            const time = new Date().toLocaleTimeString()
+            const element = (
+                <div>
+                    London : <input value={time} />
+                    Brussel: <input value={time} />
+                </div>
+            )
 
-        ReactDOM.render(element, rootElement)
+            ReactDOM.render(element, rootElement)
+        }
+
+        tick()
+        setInterval(tick, 1000)
     </script>
-
 </body>
