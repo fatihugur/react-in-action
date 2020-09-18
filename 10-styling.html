@@ -29,21 +29,27 @@
     </style>
     <script type="text/babel">
         function Box({ className = '', ...rest }) {
-            return <div className={`box ${className}`} {...rest} />
+            return (
+                <div
+                    className={`box ${className}`}
+                    style={{ fontStyle: 'italic' }}
+                    {...rest}
+                />
+            )
         }
 
         const element = (
             <div>
                 <Box className="box--small" style={{
-                    fontStyle: 'italic', backgroundColor: 'lightblue'
+                    backgroundColor: 'lightblue'
                 }}>small lightblue box</Box>
 
                 <Box className="box--medium" style={{
-                    fontStyle: 'italic', backgroundColor: 'pink'
+                    backgroundColor: 'pink'
                 }}>medium lightblue box</Box>
 
                 <Box className="box--large" style={{
-                    fontStyle: 'italic', backgroundColor: 'orange'
+                    backgroundColor: 'orange'
                 }}>large lightblue box</Box>
             </div>
         )
