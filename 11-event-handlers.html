@@ -9,17 +9,20 @@
         const state = { eventCount: 0, username: '' }
 
         function App() {
+            function handleClick() {
+                setState({ eventCount: state.eventCount + 1 })
+            }
             return (
                 <div>
                     <p>There have been {state.eventCount} events.</p>
                     <p>
                         <button
-                            onClick={() => setState({ eventCount: state.eventCount + 1 })}
+                            onClick={handleClick}
                         >Click me</button>
                     </p>
                     <p>You typed: {state.username}</p>
                     <p>
-                        <input />
+                        <input onBlur={event => setState({ username: event.target.value })} />
                     </p>
                 </div>
             )
