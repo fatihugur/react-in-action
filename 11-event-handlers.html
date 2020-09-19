@@ -6,15 +6,14 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root')
 
-        function APP() {
-            function handleClick() {
-                setState({ eventCount: state.eventCount + 1 })
-            }
+        const state = { eventCount: 0, username: '' }
+
+        function App() {
             return (
                 <div>
                     <p>There have been {state.eventCount} events.</p>
                     <p>
-                        <button onClick={handleClick}>Click me</button>
+                        <button>Click me</button>
                     </p>
                     <p>You typed: {state.username}</p>
                     <p>
@@ -22,7 +21,6 @@
                     </p>
                 </div>
             )
-
         }
 
         function setState(newState) {
