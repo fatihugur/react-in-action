@@ -5,12 +5,13 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
         function Greeting() {
-            const [name, setName] = React.useState(
-                // Arrow function
-                //  React allows us to specify a function instead of an actual value, and then it will only call that function when it needs to – on the initial render.
-                () => window.localStorage.getItem('name') || ''
-            );
+            const [name, setName] = React.useState(() => {
+                console.log('hello')
+                return window.localStorage.getItem('name') || ''
 
+            })
+            //to see how oefen rendered?
+            console.log('rendered')
             // We don't want to render on every change
             // Since we're using localStorage, it's not a big deal
 
