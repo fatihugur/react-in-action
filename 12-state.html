@@ -3,31 +3,50 @@
     <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <style>
+        form,
+        strong {
+            margin: 10px;
+        }
+
+        div {
+            border: 1px solid #000000;
+        }
+    </style>
     <script type="text/babel">
         function GreetingApp() {
             const [name, setName] = React.useState('')
             const [name2, setName2] = React.useState('')
+            const [ad, setYeniAd] = React.useState('')
             //const name = stateArray[0]
             //const setName = stateArray[1]
             const handleChange = event => setName(event.target.value)
             const handleChange2 = event => setName2(event.target.value)
+            const handleChange3 = event => setYeniAd(event.target.value)
             return (
                 <div>
-                    <form>
-                        <label htmlFor="name">Name: </label>
-                        <input onChange={handleChange} id="name" />
-                    </form>
-                    {name ? <strong>Hello {name}</strong> : 'Please type your name'}
-
+                    <div>
+                        <form>
+                            <label htmlFor="name">Name: </label>
+                            <input onChange={handleChange} id="name" />
+                        </form>
+                        {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+                    </div>
                     <div>
                         <form>
                             <label htmlFor="name">Name: </label>
                             <input onChange={handleChange2} id="name" />
                         </form>
                         {name2 ? <strong>Hello {name2}</strong> : 'Please type your name'}
-
-
                     </div>
+                    <div>
+                        <form>
+                            <label htmlFor="name">Name: </label>
+                            <input onChange={handleChange3} id="ad" />
+                        </form>
+                        {ad ? <strong>Hello {ad}</strong> : 'Lütfen adınızı yazın'}
+                    </div>
+
                 </div>
             )
         }
