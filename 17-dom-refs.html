@@ -45,10 +45,14 @@
     </style>
     <script type="text/babel">
         function Tilt({ children }) {
-            return (
-                <div className="tilt-root">
-                    <div className="tilt-child">{children}</div>
+            const tiltRef = React.useRef()
+            React.useEffect(() => {
+                console.log(tiltRef.current)
+            })
 
+            return (
+                <div ref={tiltRef} className="tilt-root">
+                    <div className="tilt-child">{children}</div>
                 </div>
             )
         }
