@@ -11,24 +11,34 @@
 
             React.useEffect(() => {
                 window.localStorage.setItem('key', state);
-            }, [state])
+            }, [key, state])
             return [state, setState]
         }
 
         function Greeting() {
             const [name, setName] = useLocalStorageState('name')
-
+            const [surname, setSurname] = useLocalStorageState('surname')
 
             const handleChange = event => setName(event.target.value);
+            const handleChange2 = event => setSurname(event.target.value);
 
             return (
                 <div>
-                    <form>
-                        <label htmlFor="name">Name: </label>
-                        {/* showing the current state of name prop */}
-                        <input value={name} onChange={handleChange} id="name" />
-                    </form>
-                    {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+                    <div>
+                        <form>
+                            <label htmlFor="name">Name: </label>
+                            {/* showing the current state of name prop */}
+                            <input value={name} onChange={handleChange} id="name" />
+                        </form>
+                        {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+                    </div>
+                    <div>
+                        <form>
+                            <label htmlFor="name">Surname: </label>
+                            <input value={surname} onChange={handleChange2} id="surname" />
+                        </form>
+                        {surname ? <strong>Hello {surname}</strong> : 'Please type your surname'}
+                    </div>
                 </div>
             )
         }
