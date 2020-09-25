@@ -6,8 +6,11 @@
     <script type="text/babel">
 
         function UsernameForm() {
+            function handleSubmit() {
+                console.log('submitted')
+            }
             return (
-                <form>
+                <form onSubmit={}>
                     <div>
                         <label>Username:</label>
                         <input type="text" />
