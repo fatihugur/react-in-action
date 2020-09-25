@@ -6,8 +6,11 @@
     <script type="text/babel">
 
         function UsernameForm() {
-            function handleSubmit() {
+            function handleSubmit(event) {
+                event.preventDefault()
                 console.log('submitted')
+                const username = document.querySelecetor('input').valie
+                alert(`You entered: ${username}`)
             }
             return (
                 <form onSubmit={handleSubmit}>
