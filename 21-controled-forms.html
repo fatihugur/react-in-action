@@ -12,12 +12,10 @@
             function handleSubmit(event) {
                 event.preventDefault()
                 console.dir('event.target')
-                //no need for now
-                //const username = event.target.elements.usernameInput.value
                 alert(`You entered: ${username}`)
             }
             function handleChange(event) {
-                setUsername(event.target.value)
+                setUsername(event.target.value.toLowerCase())
 
             }
             return (
