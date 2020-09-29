@@ -5,22 +5,108 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
 
-        const rootElement = document.getElementById('root')
-        // const element = React.createElement('div', {
-        // children: 'Hello World! My name is Fatih...',
-        // children: ['Hello World', ', Goodbye World'],
-        // className: 'container',
-        // }) 
-        const element = <div className="container"> Hello World </div>
-        console.log(element)
+        const allItems = [
+            { id: 'a', value: 'apple' },
+            { id: 'o', value: 'orange' },
+            { id: 'g', value: 'grape' },
+            { id: 'p', value: 'pear' }
+        ];
 
-        ReactDOM.render(element, rootElement)
-       // const rootElement = document.getElementById('root')
-       // const element = document.createElement('div')
-       // element.textContent = "Hello World! My name is Fatih"
-       // element.className = "container"
-      // rootElement.appendChild(element)
+        function App() {
+            const [items, setItems] = React.useState(allItems);
 
+            function addItem() {
+                setItems([...items, allItems.find(i => !items.includes(i))]);
+            }
+
+            function removeItem(item) {
+                setItems(items.filter(i => i !== item));
+            }
+
+            return (
+                <div>
+                    <button disabled={items.length >= allItems.length} onClick={addItem}>
+                        add item
+                    </button>
+                    <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+                        {items.map(item => (
+                            // each iteam needs to have a key prop
+                            // We’re using inputs in this example
+                            // but the same thing can happen for your own components that maintain state.
+                            <li>
+                                <button onClick={() => removeItem(item)}>remove</button>{' '}
+                                <label htmlFor={`${item.value}-input`}>{item.value}</label>{' '}
+                                <input id={`${item.value}-input`} defaultValue={item.value} />
+                            </li>
+                            // The best way to pick a key is to use a string that uniquely
+                            // identifies a list item among its siblings
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 
+    <script type="text/babel">
+        function FocusDemo() {
+            const [items, setItems] = React.useState([
+                { id: 'a', value: 'apple' },
+                { id: 'o', value: 'orange' },
+                { id: 'g', value: 'grape' },
+                { id: 'p', value: 'pear' }
+            ]);
+
+            React.useEffect(() => {
+                const interval = setInterval(() => {
+                    setItems(shuffle(items));
+                }, 1000);
+                return () => clearInterval(interval);
+            }, []);
+
+            return (
+                <div>
+                    <div>
+                        <h1>Without Key</h1>
+                        {items.map(item => (
+                            <input value={item.value} />
+                        ))}
+                    </div>
+                    <div>
+                        <h1>With Key as Index</h1>
+                        {items.map((item, index) => (
+                            <input key={index} value={item.value} />
+                        ))}
+                    </div>
+                    <div>
+                        <h1>With Key</h1>
+                        {items.map(item => (
+                            <input key={item.id} value={item.value} />
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        function shuffle(originalArray) {
+            const array = [...originalArray];
+            let currentIndex = array.length;
+            let temporaryValue;
+            let randomIndex;
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
+        }
+        // uncomment this line to demo:
+        ReactDOM.render(<FocusDemo />, document.getElementById('root'))
+    </script>
 </body>
